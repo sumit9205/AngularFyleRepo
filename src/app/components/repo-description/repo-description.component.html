@@ -1,0 +1,30 @@
+<div class="container border rounded" style="min-height: 150px; height: auto;">
+    <div class="row text-primary h5 pt-3 justify-content-center">{{name}}</div>
+    <div class="row pt-2">
+        <div class="col-lg-3" style="font-weight: 500; font-size: 17px;"> Description :</div>
+        <div class="col">{{description ? description: "Description not mentioned"}}</div>
+
+    </div>
+
+    <ng-container *ngIf="topics?.length; else noTopics;">
+        <div class="row pt-2">
+            <div class="col-lg-3 pt-3" style="font-weight: 500; font-size: 17px;"> Topics :</div>
+            <div class="col">
+                <div class="my-3">
+                    <span *ngFor="let topic of topics">
+                        <span class="p-2 m-2 bg-primary text-white rounded">{{topic}}</span>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </ng-container>
+    <ng-template #noTopics>
+        <div class="row pt-2">
+            <div class="col-lg-3 pt-3" style="font-weight: 500; font-size: 17px;"> Topics :</div>
+            <div class="col">
+                <div class="my-3"> <span class="p-2 m-2 bg-warning bg-gradient text-white rounded">No topic
+                        mentioned</span> </div>
+            </div>
+        </div>
+    </ng-template>
+</div>
